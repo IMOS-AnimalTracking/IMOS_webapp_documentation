@@ -38,7 +38,7 @@ Acoustic Telemetry makes it possible for multiple animals to be monitored over l
 
 ### Acoustic transmitters
 
-:::: {style="display: grid; grid-template-columns: 2fr 1fr; grid-column-gap: 40px;"}
+:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 40px;"}
 
 ::: {}
 And this block will be put on the left:
@@ -51,7 +51,7 @@ Text
 
 ::: {}
 
-![© Rob Harcourt](Images/Receiver 1.png)
+![© Inovasea](Images/Transmitter 1.png)
 
 :::
 
