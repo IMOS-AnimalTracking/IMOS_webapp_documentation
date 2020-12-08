@@ -1,0 +1,12 @@
+/*----------LOGO above TOC---------*/
+
+  #header.fluid-row::before {
+   content: "";
+   height: 200px;
+   width: 200px;
+   float: right;
+   background-image: url("Images/IMOS_logo-stacked_transparent.png");
+   background-size: contain;
+   background-position: top right;
+   background-repeat: no-repeat;
+ }
