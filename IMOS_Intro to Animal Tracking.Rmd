@@ -84,9 +84,9 @@ Text
 
 ## Active vs Passive tracking
 
-<br>
-<br>
-<br>
+Acoustic telemetry has been successfully implemented on an incredibly diverse range of species. Acoustic telemetry includes both passive acoustic telemetry where a network of static receivers detects animals moving through their environment, and active acoustic tracking where an individual animal is followed around by a small boat with a mobile receiver attached. Here, we only discuss the former as it comprises the overwhelming majority of acoustic telemetry research outputs. 
+
+<br><br><br>
 
 ![© Elodie Lédee](Images/Acoustic_Design.png)
 
