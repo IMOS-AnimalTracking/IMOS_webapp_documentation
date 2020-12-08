@@ -111,6 +111,31 @@ Historically, the ability to track the movements of animals has primarily relied
 
 Acoustic Telemetry uses a large network of strategically located acoustic receivers in waters around Australia to detect and track tagged animals. This network typically consists of two main types of deployments, large cross shelf arrays or curtains and clustered arrays around local areas such as reefs, headlands, and estuaries. Historically, the ability to track the movements of animals has primarily relied upon the recapture and reporting of tagged individuals at both small and large scales. The use of a network of acoustic receivers that allow the detection of tagged animals in near real-time provides a powerful tool for observing animal movements in Australian coastal and continental shelf ecosystems.
 
+<br><br>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, out.width='100%'}
+library(leaflet)
+library(tidyverse)
+library(sf)
+library(lubridate)
+
+statinfo <-
+  read_csv("data/IMOS-ATF_Receiver-Deployment-Metadata_ALL.csv") %>% 
+  mutate(deployment_latitude = case_when(deployment_latitude > 0 ~ -deployment_latitude, TRUE ~ deployment_latitude)) %>% 
+  filter(recovery_date > (ymd_hms(Sys.time()) - years(1) - months(6))) %>% 
+  mutate(imos_device = case_when(str_detect(project_operatedby, pattern = "IMOS") ~ "IMOS", TRUE ~ "Independent")) %>% 
+  select(deployment_longitude, deployment_latitude, imos_device, installation_name, station_name) %>% 
+  st_as_sf(coords = c("deployment_longitude", "deployment_latitude"), crs = 4326, remove = F)
+  
+statinfo %>% 
+  leaflet() %>% 
+  addProviderTiles(providers$Esri.WorldImagery) %>% 
+  addMarkers(clusterOption = markerClusterOptions(removeOutsideVisibleBounds = T),
+             popup = ~as.character(station_name),
+             label = ~as.character(installation_name))
+  
+
+```
 
 <br><br>
 
