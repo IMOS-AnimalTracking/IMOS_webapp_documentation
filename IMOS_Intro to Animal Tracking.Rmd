@@ -7,10 +7,8 @@ output:
     toc: true
     toc_float: 
       collapsed: false
-      smooth_scroll: false
+      smooth_scroll: true
     self_contained: yes
-    depth: 5
-    number_sections: false
     theme: cerulean
     highlight: pygments
 ---
@@ -38,18 +36,37 @@ Acoustic Telemetry makes it possible for multiple animals to be monitored over l
 
 ### Acoustic transmitters
 
+![](Images/Transmitter.gif)
+
 :::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 40px;"}
 
 ::: {}
-And this block will be put on the left:
 
-Text
+<br>
 
-<br><br><br><br>
+Tracking the movement of animals involves affixing special tags to individuals that are being monitored. These tags, called acoustic transmitters, transmit high frequency acoustic signals that include a unique animal ID. Transmitters with sensors also transmit sensor data that may include temperature, pressure (depth) or acceleration data. Long-term passive monitoring primarily uses coded tags that use a communication system called Pulse Position Modulation (PPM). This system works where tags transmit a sequence of 8 to 10 coded pulses, called a 'Pulse Train'.
+
+<br>
+
+![](Images/Pulse.png) 
+
+<br>
+
+A pulse train takes 3 - 5 seconds to transmit, and is transmitted repeatedly with a delay over the life of the tag. The delay between pulse trains can be fixed or pseudorandom, with the latter allowing multiple tags to operate simultaneously without collision of signals between different tagged individuals. 
+
+<br>
+
+![](Images/PulseTrain.png)
+
+
+<br><br>
 
 :::
 
 ::: {}
+
+<br><br>
+<br><br>
 
 ![© Inovasea](Images/Transmitter 1.png)
 
@@ -57,51 +74,65 @@ Text
 
 ::::
 
-<br><br><br><br>
+<br><br>
 
 ### Acoustic Receivers
+
+![](Images/Receiver.gif)
 
 :::: {style="display: grid; grid-template-columns: 1fr 2fr; grid-column-gap: 40px;"}
 
 ::: {}
+
+<br><br>
+<br><br>
+
 ![© Rob Harcourt](Images/Receiver 1.png)
 :::
 
 ::: {}
-And this block will be put on the right:
 
-Text
+<br>
 
-<br><br><br><br>
+The second part of this system are hydrophone data loggers called 'acoustic receivers'. These receivers record the unique animal ID, any sensor data and a timestamp when an animal fitted with an acoustic transmitter is within detection range of a receiver. The detection range of a receiver depends on a range of factors depending on the study site. More information on detection range can be found [here](https://support.vemco.com/s/article/How-much-detection-range-can-I-expect-from-my-tags-and-receivers).
 
-:::
+<br>
 
-::::
+In most cases, multiple receivers (termed an 'array') are deployed at fixed locations around a study site, for the full period of the study (i.e., seasons, years), and allow for long-term continuous monitoring. The design of the receiver array depends on the question being explored, the animals being tracked or the habitats within the study site. [Heupel et al. 2006](https://doi.org/10.1071/MF05091) provides a good review of possible designs of acoustic arrays, including grids and curtains, to track marine animals.
 
-<br><br><br><br>
+<br>
 
----------------------------------------
-
-## Active vs Passive tracking
-
-Acoustic telemetry has been successfully implemented on an incredibly diverse range of species. Acoustic telemetry includes both passive acoustic telemetry where a network of static receivers detects animals moving through their environment, and active acoustic tracking where an individual animal is followed around by a small boat with a mobile receiver attached. Here, we only discuss the former as it comprises the overwhelming majority of acoustic telemetry research outputs. 
-
-<br><br><br>
-
-![© Elodie Lédee](Images/Acoustic_Design.png)
+![](Images/ArrayDesign.png)
 
 
 
 <br><br>
 
-Check out the [Innovasea support webpage](https://support.vemco.com/s/topic/0TO2M000001I4G2WAK/acoustic-telemetry-101?tabset-c9027=2) for more information on basic concepts, tips on study design and technical specifications of transmitters and receivers. 
+:::
 
-<br><br><br><br>
+::::
+
+<br><br>
 
 ---------------------------------------
 
-## The National network and benifits of Data Sharing
+## Active vs Passive tracking
 
+Acoustic telemetry has been successfully implemented on an incredibly diverse range of species. Acoustic telemetry includes both passive acoustic telemetry where a network of static receivers detects animals moving through their environment, and active acoustic tracking where an individual animal is followed around by a small boat with a mobile receiver attached. Researchers working with the IMOS Animal Tracking Facility use a combination of both to collect data on a range of marine species.
+
+<br><br>
+
+![© Elodie Lédee](Images/Acoustic_Design.png)
+
+<br><br>
+
+Check out the [Innovasea support webpage](https://support.vemco.com/s/topic/0TO2M000001I4G2WAK/acoustic-telemetry-101?tabset-c9027=2) for more information on basic concepts, tips on study design and technical specifications of transmitters and receivers. 
+
+<br><br>
+
+---------------------------------------
+
+## The National Network 
 
 By its very nature acoustic telemetry is almost pre-destined for large scale collaboration and data sharing. Animals tagged in one project’s array are likely to leave the area covered by those receivers unless it is very extensive or they have extremely small home ranges.
 
@@ -114,10 +145,13 @@ Acoustic Telemetry uses a large network of strategically located acoustic receiv
 <br><br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, out.width='100%'}
-library(leaflet)
+library(mapview)
 library(tidyverse)
 library(sf)
 library(lubridate)
+library(leafem)
+
+mapviewOptions(fgb = F)
 
 statinfo <-
   read_csv("data/IMOS-ATF_Receiver-Deployment-Metadata_ALL.csv") %>% 
@@ -125,14 +159,12 @@ statinfo <-
   filter(recovery_date > (ymd_hms(Sys.time()) - years(1) - months(6))) %>% 
   mutate(imos_device = case_when(str_detect(project_operatedby, pattern = "IMOS") ~ "IMOS", TRUE ~ "Independent")) %>% 
   select(deployment_longitude, deployment_latitude, imos_device, installation_name, station_name) %>% 
-  st_as_sf(coords = c("deployment_longitude", "deployment_latitude"), crs = 4326, remove = F)
-  
-statinfo %>% 
-  leaflet() %>% 
-  addProviderTiles(providers$Esri.WorldImagery) %>% 
-  addMarkers(clusterOption = markerClusterOptions(removeOutsideVisibleBounds = T),
-             popup = ~as.character(station_name),
-             label = ~as.character(installation_name))
+  st_as_sf(coords = c("deployment_longitude", "deployment_latitude"), crs = 4326)
+
+
+mapview(statinfo, zcol = "imos_device", burst = T, map.type = c("Esri.WorldImagery", "OpenStreetMap"), 
+        legend = F, homebutton = F)@map %>% 
+  leafem::removeMouseCoordinates() 
   
 
 ```
@@ -153,21 +185,22 @@ vembedr::embed_youtube(id = "f2W6Aq6epTI", allowfullscreen = T) %>%
 
 ```
 
+<br><br>
+
 --------------------------------------
 
 
-<br><br><br>
-
-
-If you have any comments or queries about the IMOS Animal Tracking Database free to contact us at:
-
-* IMOS Animal Tracking Facility: <...>
+If you have any comments or queries about the IMOS Animal Tracking Database contact the IMOS Animal Tracking Facility team at <info@aodn.org.au>.
 
 **Happy Tracking!**
 
-<br><br><br><br>
 
 ---------------------------------------
 
 **Vignette version**
-0.0.1 (8 Dec 2020)
+0.0.2 (22 Jan 2021)
+
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
+
+
