@@ -3,6 +3,7 @@ title: "Integrated Marine Observing System: Animal Tracking Facility"
 subtitle: Introduction to Acoustic Telemetry
 output:
   html_document:
+    anchor_sections: false
     css: style.css
     toc: true
     toc_float: 
@@ -177,10 +178,8 @@ Here is an examples of how this network has been used by the New South Wales Dep
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(vembedr)
-vembedr::embed_youtube(id = "2mhisuvONg8") %>% 
+vembedr::embed_youtube(id = "2mhisuvONg8", allowfullscreen = T) %>% 
   vembedr::use_bs_responsive()
-  
-
 ```
 
 <br><br>
