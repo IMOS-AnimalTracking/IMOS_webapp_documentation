@@ -15,17 +15,15 @@ output:
 
 --------------------------------------
 
-# What is Acoustic telemetry?
+# What is Acoustic Telemetry?
 
 
 
 <br>
 
-Acoustic telemetry refers to tracking the movements of aquatic animals using active transmission of sound pulses as an encoded signal. Typically, it involves the use of a specialised transmitter attached to an animal to be tracked, and recording its presence at key locations and habitats via an array of omnidirectional hydrophones in fixed locations within the study site.
+Acoustic telemetry refers to tracking the movements of aquatic animals using high frequency sound pulses as an encoded signal. It typically involves two pieces of equipment: 1) a transmitter or tag attached to the animal to be tracked, and 2) a receiver or listening station deployed at key locations and habitats, which records the presence of the tagged animal whenever it is within range (~200 – 800 m in most cases). 
 
-Acoustic Telemetry makes it possible for multiple animals to be monitored over long periods of time, and over scales of 100s of metres to 100s of kilometres. Information obtained from acoustic telemetry can informing habitat use, home range size, effectiveness of marine protected areas, refinement of stock assessment and migratory patterns. 
-
-
+Acoustic Telemetry makes it possible for multiple animals to be monitored over long periods of time, and over scales of 100s of metres to 100s of kilometres. Information obtained from acoustic telemetry can inform habitat use, home range size, effectiveness of marine protected areas, refinement of stock assessment, and migratory patterns.
 
 <br>
 
@@ -38,41 +36,46 @@ Acoustic Telemetry makes it possible for multiple animals to be monitored over l
 
 ![](Images/Transmitter.gif)
 
-:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 40px;"}
+<br>
+
+Tracking the movement of animals involves affixing special tags to individuals that are being monitored. These tags, called acoustic transmitters, transmit high frequency acoustic signals that include a unique animal ID. Transmitters with sensors also transmit sensor data that may include temperature, pressure (depth) or acceleration data. Long-term passive monitoring primarily uses coded tags that use a communication system called Pulse Position Modulation (PPM). This system works where tags transmit a sequence of coded pulses.
+
+<br>
+
+:::: {style="display: grid; grid-template-columns: 1.5fr 1fr; grid-column-gap: 50px;"}
 
 ::: {}
 
-<br>
-
-Tracking the movement of animals involves affixing special tags to individuals that are being monitored. These tags, called acoustic transmitters, transmit high frequency acoustic signals that include a unique animal ID. Transmitters with sensors also transmit sensor data that may include temperature, pressure (depth) or acceleration data. Long-term passive monitoring primarily uses coded tags that use a communication system called Pulse Position Modulation (PPM). This system works where tags transmit a sequence of 8 to 10 coded pulses, called a 'Pulse Train'.
-
-<br>
-
-![](Images/Pulse.png) 
-
-<br>
-
-A pulse train takes 3 - 5 seconds to transmit, and is transmitted repeatedly with a delay over the life of the tag. The delay between pulse trains can be fixed or pseudorandom, with the latter allowing multiple tags to operate simultaneously without collision of signals between different tagged individuals. 
-
-<br>
-
-![](Images/PulseTrain.png)
-
-
 <br><br>
+
+Acoustic transmitters have been developed and commercially produced by a number of manufacturers. The IMOS Animal Tracking Facility utilises tracking technology primarily from [Inovasea](https://www.innovasea.com/fish-tracking/), however can support data obtained from a range of other systems. Transmitters developed by Inovasea range in size from 15 - 98mm, with the largest tags having a battery life of 10 years. 
 
 :::
 
 ::: {}
 
-<br><br>
-<br><br>
+<br>
 
-![© Inovasea](Images/Transmitter 1.png)
+![© Inovasea](Images/Tag sizes.png) 
+
+<br><br>
 
 :::
 
 ::::
+
+
+Depending on the size, shape and behaviour of the study species, transmitters can be attached to individuals by conducting a minor surgical procedure.   
+
+<br> 
+
+![© Charlie Huveneers](Images/Tag Surgery 1.png) 
+
+<br><br>
+
+Larger animals, or animals difficult to handle can also be tagged externally using tags teathered to specialised dart tags. 
+
+![© Andrew Fox/Rodney Fox Shark Expeditions](Images/External tag.png) 
 
 <br><br>
 
@@ -94,11 +97,11 @@ A pulse train takes 3 - 5 seconds to transmit, and is transmitted repeatedly wit
 
 <br>
 
-The second part of this system are hydrophone data loggers called 'acoustic receivers'. These receivers record the unique animal ID, any sensor data and a timestamp when an animal fitted with an acoustic transmitter is within detection range of a receiver. The detection range of a receiver depends on a range of factors depending on the study site. More information on detection range can be found [here](https://support.vemco.com/s/article/How-much-detection-range-can-I-expect-from-my-tags-and-receivers).
+The second part of this system are hydrophone data loggers called ‘acoustic receivers or listening stations’. These receivers record the unique animal ID transmitted by the tag, any sensor data and a timestamp when a tagged animal fitted is within detection range of a receiver. The detection range of a receiver depends on a range of factors depending on the study site. More information on detection range can be found  [here](https://support.vemco.com/s/article/How-much-detection-range-can-I-expect-from-my-tags-and-receivers) and [here](https://doi.org/10.1111/2041-210X.12520).
 
 <br>
 
-In most cases, multiple receivers (termed an 'array') are deployed at fixed locations around a study site, for the full period of the study (i.e., seasons, years), and allow for long-term continuous monitoring. The design of the receiver array depends on the question being explored, the animals being tracked or the habitats within the study site. [Heupel et al. 2006](https://doi.org/10.1071/MF05091) provides a good review of possible designs of acoustic arrays, including grids and curtains, to track marine animals.
+In most cases, multiple receivers (termed an ‘array’) are deployed at fixed locations around a study site, for the full period of the study (i.e., seasons, years), and allow for long-term continuous monitoring. The design of the receiver array depends on the question being explored, the animals being tracked, or the habitats within the study site. [Heupel et al. 2006](https://doi.org/10.1071/MF05091) provides a good review of possible designs of acoustic arrays, including grids and curtains, to track marine animals.
 
 <br>
 
@@ -118,7 +121,7 @@ In most cases, multiple receivers (termed an 'array') are deployed at fixed loca
 
 ## Active vs Passive tracking
 
-Acoustic telemetry has been successfully implemented on an incredibly diverse range of species. Acoustic telemetry includes both passive acoustic telemetry where a network of static receivers detects animals moving through their environment, and active acoustic tracking where an individual animal is followed around by a small boat with a mobile receiver attached. Researchers working with the IMOS Animal Tracking Facility use a combination of both to collect data on a range of marine species.
+Acoustic telemetry has been successfully implemented on an incredibly diverse range of species and for diverse objectives ([Hussey et al., 2015 ](https://science.sciencemag.org/content/348/6240/1255642.abstract)). Acoustic telemetry includes both passive acoustic telemetry where a network of static receivers detects animals moving through their environment, and active acoustic tracking where an individual animal is followed by a boat with a mobile receiver.
 
 <br><br>
 
@@ -134,17 +137,15 @@ Check out the [Innovasea support webpage](https://support.vemco.com/s/topic/0TO2
 
 ## The National Network 
 
-By its very nature acoustic telemetry is almost pre-destined for large scale collaboration and data sharing. Animals tagged in one project’s array are likely to leave the area covered by those receivers unless it is very extensive or they have extremely small home ranges.
+By its very nature, acoustic telemetry is almost pre-destined for large-scale collaboration and data sharing. Tagged animals often leave the study site unless it covers a large area or the tagged animals have extremely small home ranges.
 
-The IMOS Animal Tracking Database provides a central repository of acoustic tag detections and metadata from Australia, increasing collaboration of acoustic telemetry researchers and institutes and increased access to animal movement data ([Hoenner et al. 2018](https://www.nature.com/articles/sdata2017206)). 
+The IMOS Animal Tracking Database provides a central repository of acoustic tag detections and metadata from Australia, increasing collaboration of acoustic telemetry researchers and institutes and increased access to animal movement data ([Hoenner et al. 2018](https://www.nature.com/articles/sdata2017206)).
 
-Historically, the ability to track the movements of animals has primarily relied upon the recapture and reporting of tagged individuals at both small and large scales. The use of a network of acoustic receivers that allow the detection of tagged animals in near real-time provides a powerful tool for observing animal movements in Australian coastal and continental shelf ecosystems.
-
-Acoustic Telemetry uses a large network of strategically located acoustic receivers in waters around Australia to detect and track tagged animals. This network typically consists of two main types of deployments, large cross shelf arrays or curtains and clustered arrays around local areas such as reefs, headlands, and estuaries. Historically, the ability to track the movements of animals has primarily relied upon the recapture and reporting of tagged individuals at both small and large scales. The use of a network of acoustic receivers that allow the detection of tagged animals in near real-time provides a powerful tool for observing animal movements in Australian coastal and continental shelf ecosystems.
+Acoustic Telemetry uses a large network of strategically located acoustic receivers in waters around Australia to detect and track tagged animals. This network typically consists of two main types of deployments, large cross-shelf arrays or curtains and clustered arrays around local areas such as reefs, headlands, and estuaries. Historically, the ability to track the movements of animals has primarily relied upon the recapture and reporting of tagged individuals at both small and large scales. The use of a network of acoustic receivers that allow the detection of tagged animals in near real-time provides a powerful tool for observing animal movements in Australian coastal and continental shelf ecosystems.
 
 <br><br>
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, out.width='100%'}
+```{r, echo=FALSE, message=FALSE, warning=FALSE, out.width='100%', fig.cap = "Map: Historic and current locations from which data is available in the [IMOS ATF webapp](https://animaltracking.aodn.org.au)"}
 library(mapview)
 library(tidyverse)
 library(sf)
@@ -156,7 +157,6 @@ mapviewOptions(fgb = F)
 statinfo <-
   read_csv("data/IMOS-ATF_Receiver-Deployment-Metadata_ALL.csv") %>% 
   mutate(deployment_latitude = case_when(deployment_latitude > 0 ~ -deployment_latitude, TRUE ~ deployment_latitude)) %>% 
-  filter(recovery_date > (ymd_hms(Sys.time()) - years(1) - months(6))) %>% 
   mutate(imos_device = case_when(str_detect(project_operatedby, pattern = "IMOS") ~ "IMOS", TRUE ~ "Independent")) %>% 
   select(deployment_longitude, deployment_latitude, imos_device, installation_name, station_name) %>% 
   st_as_sf(coords = c("deployment_longitude", "deployment_latitude"), crs = 4326)
@@ -171,17 +171,15 @@ mapview(statinfo, zcol = "imos_device", burst = T, map.type = c("Esri.WorldImage
 
 <br><br>
 
-Here is an examples of how this national network can be used to better understand the long-distance migrations and movements of some of the marine fauna in Australia ([Espinoza et al. 2016](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147608))
+Here is an examples of how this network has been used by the New South Wales Department of Primary Industry to monitor the movements of sharks across Australia.
 
 <br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(vembedr)
-vembedr::embed_youtube(id = "BTEHiihib8g", allowfullscreen = T) %>%
+vembedr::embed_youtube(id = "2mhisuvONg8") %>% 
   vembedr::use_bs_responsive()
-
-vembedr::embed_youtube(id = "f2W6Aq6epTI", allowfullscreen = T) %>%
-  vembedr::use_bs_responsive()
+  
 
 ```
 
@@ -190,7 +188,13 @@ vembedr::embed_youtube(id = "f2W6Aq6epTI", allowfullscreen = T) %>%
 --------------------------------------
 
 
-If you have any comments or queries about the IMOS Animal Tracking Database contact the IMOS Animal Tracking Facility team at <info@aodn.org.au>.
+If you have any comments or queries about the IMOS Animal Tracking Database contact:
+
+- The Australian Ocean Data Network at <info@aodn.org.au>
+
+- The IMOS Animal Tracking Facility at <IMOS.AnimalTrackingFacility@sims.org.au>
+
+<br>
 
 **Happy Tracking!**
 
@@ -198,7 +202,7 @@ If you have any comments or queries about the IMOS Animal Tracking Database cont
 ---------------------------------------
 
 **Vignette version**
-0.0.2 (22 Jan 2021)
+0.0.3 (10 Feb 2021)
 
 
 <div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
