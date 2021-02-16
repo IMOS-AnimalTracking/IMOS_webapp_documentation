@@ -9,7 +9,7 @@ output:
     toc_float: 
       collapsed: false
       smooth_scroll: true
-    self_contained: yes
+    self_contained: false
     theme: cerulean
     highlight: pygments
 ---
@@ -152,17 +152,14 @@ Here is an examples of how this network has been used by the New South Wales Dep
 <br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-
 library(vembedr)
-embed_youtube("2mhisuvONg8") %>% 
-  use_bs_responsive()
-
+embed_youtube("2mhisuvONg8", allowfullscreen = T) %>%
+  use_bs_responsive() %>%
+  use_align("center")
 ```
 
 <br><br>
 
-
-![](https://www.youtube.com/watch?v=2mhisuvONg8)
 
 --------------------------------------
 

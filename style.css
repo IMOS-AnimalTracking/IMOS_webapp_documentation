@@ -10,3 +10,20 @@
    background-position: top right;
    background-repeat: no-repeat;
  }
+
+/*----------vembedr---------*/
+ 
+ .vembedr {
+  margin-bottom: 10px;
+}
+
+.vembedr-rounded {
+  display: inline-block;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.vembedr-rounded iframe {
+  display: block;
+  border: none;
+}
