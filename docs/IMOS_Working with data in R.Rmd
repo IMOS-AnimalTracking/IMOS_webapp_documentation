@@ -1,101 +1,36 @@
 ---
-title: Animals in Motion 2018 Workshop 
-subtitle: North Stradbroke Island
-author: Dr Ross Dwyer & Dr Vinay Udyawer
-date: Feb 20, 2018
+title: "Integrated Marine Observing System: Animal Tracking Facility"
+subtitle: Working with ATF data in R
 output:
   html_document:
+    anchor_sections: false
+    css: style.css
     toc: true
-    toc_float: true 
-    depth: 5
-    number_sections: false
-    theme: spacelab
+    toc_float: 
+      collapsed: false
+      smooth_scroll: true
+    self_contained: false
+    theme: cerulean
     highlight: pygments
 ---
-```{r, echo=FALSE}
-htmltools::img(src =knitr::image_uri('Images/OCS.jpeg'),
-               alt = 'logo', 
-               style = 'position:absolute; top:0; right:0; padding:10px;')
-```
-
-<br>
-<br>
-
-![ ](Images/Sponsors.png)
-
-<br>  
-<br> 
 
 --------------------------------------
 
-# Introductions
+# Animal tracking data and the National Animal Acoustic Telemetry Database
 
-![ ](Images/img-featured-ntStradbrokeIsland.jpg)
+The IMOS Animal Tracking Facility maintains a [National Animal Acoustic Telemetry Database](https://animaltracking.aodn.org.au). This database has been designed to allow researchers to store, share and access animal detection data collected using Acoustic Telemetry. Detection data that stored on the database can be be downloaded via the [webapp](https://animaltracking.aodn.org.au). This brief vignette highlights steps to quickly access and explore the data you store on the database using R.
 
-<br>
 
-## Who are we?
+![ ](Images/Data download workflow/Step0.png)
 
-Ross is a Postdoctoral Research Fellow in the [School of Biological Sciences](https://www.biology.uq.edu.au/) at the University of Queensland. His research falls within the field of animal ecology, where he uses animal occurrence, abundance and movement information to test hypotheses and make predictions regarding individual- and population-level responses to environmental change. He's used **R** for over 12 years, has published two **R** packages on CRAN, was lead **R** developer on the [ZoaTrack.org](www.zoatrack.org) project and regularly teaches **R** training courses at The University of Queensland and at other institutes around Australia. For more information and teaching resources, check out [Ross's website](https://www.uq.edu.au/eco-lab/content/dr-ross-dwyer).
+<br><br>
 
-Vinay is an Postdoctoral Research Fellow at the [Australian Institute of Marine Science](https://www.aims.gov.au/). He is an ecologist that is particularly interested in using large spatio-temporal datasets to understand animal movements and distributions patterns. He has considerable experience using **R** to analyse and visualise large and complex spatial datasets. He has developed **R** code to analyse 2 and 3 dimensional movement patterns of animals using acoustic telemetry data from single study sites to continental scale arrays. Vinay's **R** codes can be found on his [github page](https://github.com/vinayudyawer)
+## Downloading your data
 
-<br>
+In this vignette, we will be working with data from three Tiger Sharks (*Galeocerdo cuvier*) that were monitored around Heron and One Tree Islands. These tiger sharks were monitored over three years as part of a larger study examining the ecology and movement patterns of reef predators . In this session we will use these data to calculate three types of home ranges for tiger sharks around Heron and One Tree Island.
 
-## Course outline
+<br><br>
 
-**In this course you will learn how to analyse and interpret your aquatic telemetry datasets in R**. This workshop will demonstrate how **R** can make the processing of spatial data much quicker and easier than using standard GIS software, and can help you plot some *deadly* figures! At the end of this workshop you will also have the annotated **R** code that you can re-run at any time, share with collaborators and build on with those newly acquired data!
-
-We designed this course not to comprehensively cover all the tools in **R**, but rather to teach you skills for taking your experience with **R** to the next level. Every new project comes with its own problems and questions and you will need to be independent, patient and creative to solve these challenges. It makes sense to invest time in becoming familiar with **R**, because today **R** is the leading platform for environmental data analysis and has some other functionalities which may surprise you! 
-
-<br>
-
-This **R** workshop will be divided into 4 sessions intended to run about 1 hr 15 mins each.
-
-<br>
-
-* Session 1: *Wrangling Large Tracking Datasets and Data Visualisation*
-0.  A brief introduction to **R**
-1.  **Import** large telemetry datasets into **R** using [data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html)
-2.  **Filter** and **manipulate** our data using %pipes% and the [tidyverse](http://tidyverse.org/) group of **R** packages
-3.  **Plot** summary statistics using [ggplot2](http://ggplot2.org/)
-
-<br>
-
-* Session 2: *Working with Spatial Objects and Interactive Mapping*
-4.  Working with **Spatial* objects**
-5.  Generating interactive maps using [leaflet](http://leafletjs.com/) 
-6.  **ESRI Shapefile** import and export
-
-<br>
-
-* Session 3: *Visualising Animal Movements through Time*
-7.  Producing track **animations** 
-8.  Integration with [Google Earth](http://googleearth.com/) 
-9.  Calculating **distance metrics** (direct, circuitous, least cost)
-10.  Plotting distance travelled through time
-
-<br>
-
-* Session 4: *Centres of Activity and Home Range Estimation*
-11. Calculating short-term centers of activity (**COA**)
-12. Calculating and plotting **home range** area metrics using
-    + Minimum Convex Polygons
-    + Kernel distributions
-    + Brownian bridges
-
-<br>
-<br>
-
-**The main principles we hope you will learn today are...**
-
-* Data wrangling in **R** is safe, fast, reliable and repeatable
-* **R** can easily handle large datasets
-* **R** is the ideal suite for performing your GIS operations
-* that in **R**, it is easy to produce amazing publication-ready images 
-
-<br>
-<br>
 
 ---------------------------------------
 
