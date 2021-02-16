@@ -39,7 +39,7 @@ Acoustic Telemetry makes it possible for multiple animals to be monitored over l
 
 <br>
 
-Tracking the movement of animals involves affixing special tags to individuals that are being monitored. These tags, called acoustic transmitters, transmit high frequency acoustic signals that include a unique animal ID. Transmitters with sensors also transmit sensor data that may include temperature, pressure (depth) or acceleration data. Long-term passive monitoring primarily uses coded tags that use a communication system called Pulse Position Modulation (PPM). This system works where tags transmit a sequence of coded pulses.
+Tracking the movement of animals involves affixing special tags to individuals that are being monitored. These tags, called acoustic transmitters, transmit high frequency acoustic signals that include a unique animal ID. Transmitters with sensors also transmit sensor data that may include temperature, pressure (depth) or acceleration. Long-term passive monitoring primarily uses coded tags that use a communication system called Pulse Position Modulation (PPM). This system works where tags transmit a sequence of coded pulses.
 
 <br>
 
@@ -49,7 +49,7 @@ Tracking the movement of animals involves affixing special tags to individuals t
 
 <br><br>
 
-Acoustic transmitters have been developed and commercially produced by a number of manufacturers. The IMOS Animal Tracking Facility utilises tracking technology primarily from [Inovasea](https://www.innovasea.com/fish-tracking/), however can support data obtained from a range of other systems. Transmitters developed by Inovasea range in size from 15 - 98mm, with the largest tags having a battery life of 10 years. 
+Acoustic transmitters have been developed and commercially produced by a number of manufacturers. The IMOS Animal Tracking Facility utilises tracking technology primarily from [Innovasea](https://www.innovasea.com/fish-tracking/), however can support data obtained from a range of other systems. Transmitters developed by Innovasea range in size from 15 - 98mm, with the largest tags having a battery life of 10 years. 
 
 :::
 
@@ -57,7 +57,7 @@ Acoustic transmitters have been developed and commercially produced by a number 
 
 <br>
 
-![© Inovasea](Images/Tag sizes.png) 
+![© Innovasea](Images/Tag sizes.png) 
 
 <br><br>
 
@@ -70,11 +70,12 @@ Depending on the size, shape and behaviour of the study species, transmitters ca
 
 <br> 
 
-![© Charlie Huveneers](Images/Tag Surgery 1.png) 
+![© David Harasti](Images/Tag Surgery 1.png) 
 
 <br><br>
 
-Larger animals, or animals difficult to handle can also be tagged externally using tags teathered to specialised dart tags. 
+Larger animals, or animals difficult to handle can also be tagged externamlly using transmitters tethered to specialised dart tags. 
+
 
 ![© Andrew Fox/Rodney Fox Shark Expeditions](Images/External tag.png) 
 
@@ -98,7 +99,7 @@ Larger animals, or animals difficult to handle can also be tagged externally usi
 
 <br>
 
-The second part of this system are hydrophone data loggers called ‘acoustic receivers or listening stations’. These receivers record the unique animal ID transmitted by the tag, any sensor data and a timestamp when a tagged animal fitted is within detection range of a receiver. The detection range of a receiver depends on a range of factors depending on the study site. More information on detection range can be found  [here](https://support.vemco.com/s/article/How-much-detection-range-can-I-expect-from-my-tags-and-receivers) and [here](https://doi.org/10.1111/2041-210X.12520).
+The second part of this system are hydrophone data loggers called ‘acoustic receivers' or 'listening stations’. These receivers record the unique animal ID transmitted by the tag, any sensor data and a timestamp when a tagged animal fitted is within detection range of a receiver. The detection range of a receiver depends on a range of factors, that can vary through time and depending on the deployment location. More information on detection range can be found  [here](https://support.vemco.com/s/article/How-much-detection-range-can-I-expect-from-my-tags-and-receivers) and [here](https://doi.org/10.1111/2041-210X.12520).
 
 <br>
 
@@ -122,7 +123,7 @@ In most cases, multiple receivers (termed an ‘array’) are deployed at fixed 
 
 ## Active vs Passive tracking
 
-Acoustic telemetry has been successfully implemented on an incredibly diverse range of species and for diverse objectives ([Hussey et al., 2015 ](https://science.sciencemag.org/content/348/6240/1255642.abstract)). Acoustic telemetry includes both passive acoustic telemetry where a network of static receivers detects animals moving through their environment, and active acoustic tracking where an individual animal is followed by a boat with a mobile receiver.
+Acoustic telemetry has been successfully implemented on an incredibly diverse range of species and for diverse objectives ([Brodie et al., 2018 ](https://doi.org/10.1038/s41598-018-21988-5), [Huveneers et al., 2021](https://doi.org/10.1016/j.biocon.2021.108995)). Acoustic telemetry includes both passive acoustic telemetry where a network of static receivers detects animals moving through their environment, and active acoustic tracking where an individual animal is followed by a boat with a mobile receiver.
 
 <br><br>
 
@@ -146,43 +147,22 @@ Acoustic Telemetry uses a large network of strategically located acoustic receiv
 
 <br><br>
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, out.width='100%', fig.cap = "Map: Historic and current locations from which data is available in the [IMOS ATF webapp](https://animaltracking.aodn.org.au)"}
-library(mapview)
-library(tidyverse)
-library(sf)
-library(lubridate)
-library(leafem)
-
-mapviewOptions(fgb = F)
-
-statinfo <-
-  read_csv("data/IMOS-ATF_Receiver-Deployment-Metadata_ALL.csv") %>% 
-  mutate(deployment_latitude = case_when(deployment_latitude > 0 ~ -deployment_latitude, TRUE ~ deployment_latitude)) %>% 
-  mutate(imos_device = case_when(str_detect(project_operatedby, pattern = "IMOS") ~ "IMOS", TRUE ~ "Independent")) %>% 
-  select(deployment_longitude, deployment_latitude, imos_device, installation_name, station_name) %>% 
-  st_as_sf(coords = c("deployment_longitude", "deployment_latitude"), crs = 4326)
-
-
-mapview(statinfo, zcol = "imos_device", burst = T, map.type = c("Esri.WorldImagery", "OpenStreetMap"), 
-        legend = F, homebutton = F)@map %>% 
-  leafem::removeMouseCoordinates() 
-  
-
-```
-
-<br><br>
-
 Here is an examples of how this network has been used by the New South Wales Department of Primary Industry to monitor the movements of sharks across Australia.
 
 <br>
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
 library(vembedr)
-vembedr::embed_youtube(id = "2mhisuvONg8", allowfullscreen = T) %>% 
-  vembedr::use_bs_responsive()
+embed_youtube("2mhisuvONg8") %>% 
+  use_bs_responsive()
+
 ```
 
 <br><br>
+
+
+![](https://www.youtube.com/watch?v=2mhisuvONg8)
 
 --------------------------------------
 
